@@ -1,20 +1,16 @@
 mod base;
-use crate::base::tokenize::tokenize;
+mod lib;
+use crate::lib::main;
 
 fn main() {
     let code = r#"
         var x 20
-        if $x > 0 {
-            log "hi"
-        } else {
-            
-        }
-
-        stdout.log $x
+        printf 20
     "#;
 
-    let tokens = tokenize(code);
-    for token in tokens {
-        println!("Type: {}, Value: {}", token.token_type, token.value);
+    let tokens = base::tokenize::tokenize(code);
+    base::runtime::runtime(tokens);
+    for token in base::tokenize::tokenize(code) {
+        println!("{}, {}", token.token_type.to_string(), token.value.to_string())
     }
 }

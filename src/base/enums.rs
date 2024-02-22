@@ -23,6 +23,7 @@ pub enum TokenType {
     VarRef,
     FuncCall,
     Logic,
+    NewLine,
 }
 
 pub struct Token {
@@ -42,6 +43,7 @@ impl fmt::Display for TokenType {
             TokenType::VarRef => write!(f, "VarRef"),
             TokenType::FuncCall => write!(f, "FuncCall"),
             TokenType::Logic => write!(f, "Logic"),
+            TokenType::NewLine => write!(f, "NewLine"),
         }
     }
 }
